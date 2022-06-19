@@ -1,0 +1,273 @@
+@import "nullstyle.scss";
+$shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.4);
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+}
+._container {
+  max-width: 1280px;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.error {
+  z-index: 5000;
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 90px;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  background-color: white;
+  box-shadow: $shadow;
+  > h4 {
+    padding: 5px;
+  }
+  > p {
+    padding: 5px;
+  }
+  .error__ok {
+    box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.4);
+    background-color: white;
+    margin-top: 10px;
+    width: 40px;
+    height: 20px;
+    font-size: 15px;
+  }
+}
+.container {
+  position: relative;
+  .message__choice {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+    z-index: 1000;
+    perspective: 500px;
+    box-shadow: $shadow;
+    &._active {
+      display: block;
+    }
+    .message__text {
+      font-size: 20px;
+    }
+    .choice__items {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 25px;
+      padding: 15px;
+      > img {
+        width: 80px;
+        cursor: pointer;
+      }
+    }
+    .choice__items-loader {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      > p {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      > img {
+        max-width: 80px;
+      }
+      .choice__btn-ok {
+         box-shadow: $shadow;
+        display: none;
+        width: 50px;
+        height: 30px;
+        border: 2px solid black;
+        border-radius: 3px;
+        background-color: white;
+        margin-top: 15px;
+        &._active {
+          display: block;
+        }
+      }
+    }
+  }
+  .title {
+    font-size: 35px;
+    padding: 10px 0 10px 0;
+  }
+  .game__boards {
+    display: flex;
+    flex-direction: column;
+    .boards__message {
+      min-width: 320px;
+      height: 50px;
+      border: 2px solid black;
+      border-radius: 5px;
+      padding: 5px;
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 10px;
+      box-shadow: $shadow;
+    }
+    .boards__boards {
+      @media (min-width: 768px) {
+         display: flex;
+         gap: 10px
+      }
+      .boards__computer {
+        display: none;
+        .computer__board {
+         box-shadow: $shadow;
+          display: grid;
+          grid-template-columns: repeat(11, 32px);
+          grid-template-rows: repeat(11, 32px);
+          margin-bottom: 10px;
+          border: 2px solid black;
+          border-right: none;
+          border-bottom: none;
+          & > div {
+            padding: 2px;
+            border-right: 2px solid black;
+            border-bottom: 2px solid black;
+          }
+        }
+      }
+      .boards__player {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        .player__board {
+         box-shadow: $shadow;
+          border: 2px solid black;
+          border-bottom: none;
+          border-right: none;
+          display: grid;
+          grid-template-columns: repeat(11, 32px);
+          grid-template-rows: repeat(11, 32px);
+          margin-bottom: 10px;
+          & > div {
+            padding: 2px;
+            border-right: 2px solid black;
+            border-bottom: 2px solid black;
+          }
+        }
+        .player__game-panel {
+         box-shadow: $shadow;
+          display: flex;
+          border: 2px solid black;
+          border-radius: 5px;
+          padding: 5px;
+          .game-panel__ship {
+            flex: 1 1 45%;
+            height: 70px;
+          }
+          .game-panel__btn {
+            flex: 1 1 55%;
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+            .btn__set {
+              height: 40px;
+              width: 40px;
+              border: 2px solid black;
+              border-radius: 3px;
+              font-size: 18px;
+              box-shadow: $shadow;
+            }
+            .btn__direction {
+              height: 40px;
+              width: 80px;
+              border: 2px solid black;
+              border-radius: 3px;
+              font-size: 18px;
+              box-shadow: $shadow;
+            }
+            .btn__start {
+              height: 40px;
+              width: 50px;
+              border: 2px solid black;
+              border-radius: 3px;
+              font-size: 18px;
+              box-shadow: $shadow;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.ship__four-deck {
+  position: absolute;
+  border: 2px solid black;
+  border-radius: 3px;
+  width: 129px;
+  height: 32px;
+  background-image: url(../img/ship.png);
+  background-repeat: repeat-x;
+  background-size: 25% 100%;
+  touch-action: none;
+}
+.ship__three-deck {
+  position: absolute;
+  border: 2px solid black;
+  border-radius: 3px;
+  width: 96px;
+  height: 32px;
+  background-image: url(../img/ship.png);
+  background-repeat: repeat;
+  background-size: 33% 100%;
+  touch-action: none;
+}
+.ship__two-deck {
+  position: absolute;
+  border: 2px solid black;
+  border-radius: 3px;
+  width: 64px;
+  height: 32px;
+  background-image: url(../img/ship.png);
+  background-repeat: repeat;
+  background-size: 50% 100%;
+  touch-action: none;
+}
+.ship__one-deck {
+  position: absolute;
+  border: 2px solid black;
+  border-radius: 3px;
+  width: 32px;
+  height: 32px;
+  background-image: url(../img/ship.png);
+  background-repeat: repeat;
+  background-size: 100% 100%;
+  touch-action: none;
+}
+._hit {
+  background-image: url(../img/ship.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: rgba(255, 90, 77, 0.3);
+}
+._miss {
+  background-image: url(../img/miss.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.ship {
+  background-image: url(../img/ship.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}

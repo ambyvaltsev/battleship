@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Battleship</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+
+  <body id="body">
+    <div class="wrapper">
+      <div class="container _container">
+        <div class="error">
+          <h4>ERROR</h4>
+          <p class="error__message"></p>
+          <button class="error__ok">OK</button>
+        </div>
+        <div class="message__choice">
+          <p class="message__text">Выберите орел или решку, чтобы решить, кто начнет</p>
+          <div class="choice__items">
+            <img src="img/eagle.png" class="choice__eagle" id="eagle" />
+            или
+            <img src="img/tail.png" class="choice__tail" id="tail" />
+          </div>
+          <div class="choice__items-loader">
+            <p class="choice__waiting-text">Подождите...</p>
+            <img src="img/eagle.png" class="choice__eagle" id="eagle1" />
+            <button class="choice__btn-ok">OK</button>
+          </div>
+        </div>
+        <h1 class="title">Battleship</h1>
+        <div class="game__boards">
+          <div class="boards__message"></div>
+          <div class="boards__boards">
+            <div class="boards__computer">
+              <div class="computer__board">
+                <div>A</div>
+                <div id="00"></div>
+                <div id="01"></div>
+                <div id="02"></div>
+                <div id="03"></div>
+                <div id="04"></div>
+                <div id="05"></div>
+                <div id="06"></div>
+                <div id="07"></div>
+                <div id="08"></div>
+                <div id="09"></div>
+                <div>B</div>
+                <div id="10"></div>
+                <div id="11"></div>
+                <div id="12"></div>
+                <div id="13"></div>
+                <div id="14"></div>
+                <div id="15"></div>
+                <div id="16"></div>
+                <div id="17"></div>
+                <div id="18"></div>
+                <div id="19"></div>
+                <div>C</div>
+                <div id="20"></div>
+                <div id="21"></div>
+                <div id="22"></div>
+                <div id="23"></div>
+                <div id="24"></div>
+                <div id="25"></div>
+                <div id="26"></div>
+                <div id="27"></div>
+                <div id="28"></div>
+                <div id="29"></div>
+                <div>D</div>
+                <div id="30"></div>
+                <div id="31"></div>
+                <div id="32"></div>
+                <div id="33"></div>
+                <div id="34"></div>
+                <div id="35"></div>
+                <div id="36"></div>
+                <div id="37"></div>
+                <div id="38"></div>
+                <div id="39"></div>
+                <div>E</div>
+                <div id="40"></div>
+                <div id="41"></div>
+                <div id="42"></div>
+                <div id="43"></div>
+                <div id="44"></div>
+                <div id="45"></div>
+                <div id="46"></div>
+                <div id="47"></div>
+                <div id="48"></div>
+                <div id="49"></div>
+                <div>F</div>
+                <div id="50"></div>
+                <div id="51"></div>
+                <div id="52"></div>
+                <div id="53"></div>
+                <div id="54"></div>
+                <div id="55"></div>
+                <div id="56"></div>
+                <div id="57"></div>
+                <div id="58"></div>
+                <div id="59"></div>
+                <div>G</div>
+                <div id="60"></div>
+                <div id="61"></div>
+                <div id="62"></div>
+                <div id="63"></div>
+                <div id="64"></div>
+                <div id="65"></div>
+                <div id="66"></div>
+                <div id="67"></div>
+                <div id="68"></div>
+                <div id="69"></div>
+                <div>H</div>
+                <div id="70"></div>
+                <div id="71"></div>
+                <div id="72"></div>
+                <div id="73"></div>
+                <div id="74"></div>
+                <div id="75"></div>
+                <div id="76"></div>
+                <div id="77"></div>
+                <div id="78"></div>
+                <div id="79"></div>
+                <div>I</div>
+                <div id="80"></div>
+                <div id="81"></div>
+                <div id="82"></div>
+                <div id="83"></div>
+                <div id="84"></div>
+                <div id="85"></div>
+                <div id="86"></div>
+                <div id="87"></div>
+                <div id="88"></div>
+                <div id="89"></div>
+                <div>J</div>
+                <div id="90"></div>
+                <div id="91"></div>
+                <div id="92"></div>
+                <div id="93"></div>
+                <div id="94"></div>
+                <div id="95"></div>
+                <div id="96"></div>
+                <div id="97"></div>
+                <div id="98"></div>
+                <div id="99"></div>
+                <div></div>
+                <div>0</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+              </div>
+            </div>
+            <div class="boards__player">
+              <div class="player__board">
+                <div>A</div>
+                <div id="00x" class="cell-width"></div>
+                <div id="01x"></div>
+                <div id="02x"></div>
+                <div id="03x"></div>
+                <div id="04x"></div>
+                <div id="05x"></div>
+                <div id="06x"></div>
+                <div id="07x"></div>
+                <div id="08x"></div>
+                <div id="09x"></div>
+                <div>B</div>
+                <div id="10x"></div>
+                <div id="11x"></div>
+                <div id="12x"></div>
+                <div id="13x"></div>
+                <div id="14x"></div>
+                <div id="15x"></div>
+                <div id="16x"></div>
+                <div id="17x"></div>
+                <div id="18x"></div>
+                <div id="19x"></div>
+                <div>C</div>
+                <div id="20x"></div>
+                <div id="21x"></div>
+                <div id="22x"></div>
+                <div id="23x"></div>
+                <div id="24x"></div>
+                <div id="25x"></div>
+                <div id="26x"></div>
+                <div id="27x"></div>
+                <div id="28x"></div>
+                <div id="29x"></div>
+                <div>D</div>
+                <div id="30x"></div>
+                <div id="31x"></div>
+                <div id="32x"></div>
+                <div id="33x"></div>
+                <div id="34x"></div>
+                <div id="35x"></div>
+                <div id="36x"></div>
+                <div id="37x"></div>
+                <div id="38x"></div>
+                <div id="39x"></div>
+                <div>E</div>
+                <div id="40x"></div>
+                <div id="41x"></div>
+                <div id="42x"></div>
+                <div id="43x"></div>
+                <div id="44x"></div>
+                <div id="45x"></div>
+                <div id="46x"></div>
+                <div id="47x"></div>
+                <div id="48x"></div>
+                <div id="49x"></div>
+                <div>F</div>
+                <div id="50x"></div>
+                <div id="51x"></div>
+                <div id="52x"></div>
+                <div id="53x"></div>
+                <div id="54x"></div>
+                <div id="55x"></div>
+                <div id="56x"></div>
+                <div id="57x"></div>
+                <div id="58x"></div>
+                <div id="59x"></div>
+                <div>G</div>
+                <div id="60x"></div>
+                <div id="61x"></div>
+                <div id="62x"></div>
+                <div id="63x"></div>
+                <div id="64x"></div>
+                <div id="65x"></div>
+                <div id="66x"></div>
+                <div id="67x"></div>
+                <div id="68x"></div>
+                <div id="69x"></div>
+                <div>H</div>
+                <div id="70x"></div>
+                <div id="71x"></div>
+                <div id="72x"></div>
+                <div id="73x"></div>
+                <div id="74x"></div>
+                <div id="75x"></div>
+                <div id="76x"></div>
+                <div id="77x"></div>
+                <div id="78x"></div>
+                <div id="79x"></div>
+                <div>I</div>
+                <div id="80x"></div>
+                <div id="81x"></div>
+                <div id="82x"></div>
+                <div id="83x"></div>
+                <div id="84x"></div>
+                <div id="85x"></div>
+                <div id="86x"></div>
+                <div id="87x"></div>
+                <div id="88x"></div>
+                <div id="89x"></div>
+                <div>J</div>
+                <div id="90x"></div>
+                <div id="91x"></div>
+                <div id="92x"></div>
+                <div id="93x"></div>
+                <div id="94x"></div>
+                <div id="95x"></div>
+                <div id="96x"></div>
+                <div id="97x"></div>
+                <div id="98x"></div>
+                <div id="99x"></div>
+                <div></div>
+                <div>0</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+              </div>
+              <div class="player__game-panel ships">
+                <div class="game-panel__ship"></div>
+                <div class="game-panel__btn">
+                  <button class="btn__set">Set</button>
+                  <button class="btn__direction">Direction</button>
+                  <button class="btn__start">Start</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/index.js"></script>
+  </body>
+</html>
